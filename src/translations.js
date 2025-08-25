@@ -13,10 +13,11 @@ export const translations = {
     'bank-info': 'Información bancaria para pagos',
     
     // Form fields
-    'business-name': 'Nombre de la Empresa',
+    'business-name': 'Nombre de empresa o productor',
     'contact-name': 'Nombre de Contacto',
     'email': 'Correo Electrónico',
     'phone': 'Teléfono',
+    'country': 'País',
     'tax-id': 'NIT/RUT',
     'business-description': 'Descripción del Negocio',
     'documents': 'Documentos',
@@ -93,10 +94,11 @@ export const translations = {
     'bank-info': 'Bank information for payments',
     
     // Form fields
-    'business-name': 'Business Name',
+    'business-name': 'Business Name or Producer',
     'contact-name': 'Contact Name',
     'email': 'Email Address',
     'phone': 'Phone Number',
+    'country': 'Country',
     'tax-id': 'Tax ID',
     'business-description': 'Business Description',
     'documents': 'Documents',

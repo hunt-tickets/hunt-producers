@@ -95,7 +95,7 @@
         <form id="producer-form" class="producer-form" novalidate>
           <div class="form-group">
             <label for="businessName" class="form-label">
-              <span data-es="Nombre de la Empresa" data-en="Business Name">Nombre de la Empresa</span> <span class="required">*</span>
+              <span data-es="Nombre de empresa o productor" data-en="Business Name or Producer">Nombre de empresa o productor</span> <span class="required">*</span>
             </label>
             <input 
               type="text" 
@@ -133,6 +133,7 @@
             <label for="email" class="form-label">
               <span data-es="Correo Electrónico" data-en="Email Address">Correo Electrónico</span> <span class="required">*</span>
             </label>
+            <div class="form-hint" data-es="Información de contacto para comunicarnos con usted. Aquí se enviará el método de acceso a su cuenta." data-en="Contact information for us to communicate with you. Your account login method will be sent here.">Información de contacto para comunicarnos con usted. Aquí se enviará el método de acceso a su cuenta.</div>
             <input 
               type="email" 
               id="email" 
@@ -151,6 +152,7 @@
             <label for="phone" class="form-label">
               <span data-es="Teléfono" data-en="Phone Number">Teléfono</span> <span class="required">*</span>
             </label>
+            <div class="form-hint" data-es="Información de contacto para comunicarnos con usted" data-en="Contact information for us to communicate with you">Información de contacto para comunicarnos con usted</div>
             <input 
               type="tel" 
               id="phone" 
@@ -163,6 +165,29 @@
               data-placeholder-en="+1 555 123 4567"
             />
             <div id="phone-error" class="error-message" role="alert" aria-live="polite"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="country" class="form-label">
+              <span data-es="País" data-en="Country">País</span> <span class="required">*</span>
+            </label>
+            <select id="country" name="country" class="form-input" required aria-describedby="country-error">
+              <option value="" data-es="Seleccionar país..." data-en="Select country...">Seleccionar país...</option>
+              <option value="CO" data-es="Colombia" data-en="Colombia">Colombia</option>
+              <option value="AR" data-es="Argentina" data-en="Argentina">Argentina</option>
+              <option value="BR" data-es="Brasil" data-en="Brazil">Brasil</option>
+              <option value="CL" data-es="Chile" data-en="Chile">Chile</option>
+              <option value="EC" data-es="Ecuador" data-en="Ecuador">Ecuador</option>
+              <option value="MX" data-es="México" data-en="Mexico">México</option>
+              <option value="PE" data-es="Perú" data-en="Peru">Perú</option>
+              <option value="UY" data-es="Uruguay" data-en="Uruguay">Uruguay</option>
+              <option value="VE" data-es="Venezuela" data-en="Venezuela">Venezuela</option>
+              <option value="US" data-es="Estados Unidos" data-en="United States">Estados Unidos</option>
+              <option value="CA" data-es="Canadá" data-en="Canada">Canadá</option>
+              <option value="ES" data-es="España" data-en="Spain">España</option>
+              <option value="OTHER" data-es="Otro" data-en="Other">Otro</option>
+            </select>
+            <div id="country-error" class="error-message" role="alert" aria-live="polite"></div>
           </div>
 
           <div class="form-group">

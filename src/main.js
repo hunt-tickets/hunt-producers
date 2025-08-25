@@ -49,6 +49,7 @@ class ProducerForm {
       contactName: 100,
       email: 254,
       phone: 20,
+      country: 10,
       taxId: 50,
       businessDescription: 1000,
       brebAccount: 50,
@@ -63,6 +64,7 @@ class ProducerForm {
       contactName: /^[a-zA-ZÀ-ÿ\u00C0-\u017F\s'-]{2,100}$/,
       email: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
       phone: /^[+]?[0-9\s\-()]{7,20}$/,
+      country: /^[A-Z]{2,3}|OTHER$/,
       taxId: /^[A-Za-z0-9\-]{6,50}$/,
       businessDescription: /^[\s\S]{10,1000}$/,
       brebAccount: /^[a-zA-Z0-9._]{3,50}$/,
@@ -388,6 +390,11 @@ class ProducerForm {
     
     if (fieldName === 'phone' && !/^[+]?[0-9\s\-()]{7,20}$/.test(value)) {
       this.showError(fieldName, this.t('invalid-phone'))
+      return false
+    }
+
+    if (fieldName === 'country' && !value) {
+      this.showError(fieldName, this.t('required-field'))
       return false
     }
     
