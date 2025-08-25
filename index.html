@@ -133,7 +133,6 @@
             <label for="email" class="form-label">
               <span data-es="Correo Electrónico" data-en="Email Address">Correo Electrónico</span> <span class="required">*</span>
             </label>
-            <div class="form-hint" data-es="Información de contacto para comunicarnos con usted. Aquí se enviará el método de acceso a su cuenta." data-en="Contact information for us to communicate with you. Your account login method will be sent here.">Información de contacto para comunicarnos con usted. Aquí se enviará el método de acceso a su cuenta.</div>
             <input 
               type="email" 
               id="email" 
@@ -145,6 +144,7 @@
               data-placeholder-es="ejemplo@correo.com"
               data-placeholder-en="example@email.com"
             />
+            <div class="form-hint" data-es="Información de contacto para comunicarnos con usted. Aquí se enviará el método de acceso a su cuenta." data-en="Contact information for us to communicate with you. Your account login method will be sent here.">Información de contacto para comunicarnos con usted. Aquí se enviará el método de acceso a su cuenta.</div>
             <div id="email-error" class="error-message" role="alert" aria-live="polite"></div>
           </div>
 
@@ -152,7 +152,6 @@
             <label for="phone" class="form-label">
               <span data-es="Teléfono" data-en="Phone Number">Teléfono</span> <span class="required">*</span>
             </label>
-            <div class="form-hint" data-es="Información de contacto para comunicarnos con usted" data-en="Contact information for us to communicate with you">Información de contacto para comunicarnos con usted</div>
             <input 
               type="tel" 
               id="phone" 
@@ -164,6 +163,7 @@
               data-placeholder-es="+57 300 123 4567"
               data-placeholder-en="+1 555 123 4567"
             />
+            <div class="form-hint" data-es="Información de contacto para comunicarnos con usted" data-en="Contact information for us to communicate with you">Información de contacto para comunicarnos con usted</div>
             <div id="phone-error" class="error-message" role="alert" aria-live="polite"></div>
           </div>
 
@@ -190,7 +190,7 @@
             <div id="country-error" class="error-message" role="alert" aria-live="polite"></div>
           </div>
 
-          <div class="form-group">
+          <div class="form-group conditional-field" id="taxId-field" style="display: none;">
             <label for="taxId" class="form-label">
               <span data-es="NIT/RUT" data-en="Tax ID">NIT/RUT</span> <span class="required">*</span>
             </label>
@@ -199,7 +199,6 @@
               id="taxId" 
               name="taxId" 
               class="form-input" 
-              required 
               aria-describedby="taxId-error"
               placeholder="900123456-1"
               data-placeholder-es="900123456-1"
@@ -226,7 +225,7 @@
             <div id="businessDescription-error" class="error-message" role="alert" aria-live="polite"></div>
           </div>
 
-          <div class="form-group">
+          <div class="form-group conditional-field" id="attachments-field" style="display: none;">
             <label for="attachments" class="form-label">
               <span data-es="Documentos" data-en="Documents">Documentos</span>
               <span class="form-hint" data-es="Opcional - RUT, Cédula, etc." data-en="Optional - Tax documents, ID, etc.">Opcional - RUT, Cédula, etc.</span>
@@ -256,7 +255,7 @@
 
           <div class="form-separator"></div>
 
-          <div class="form-group">
+          <div class="form-group conditional-field" id="payment-methods-field" style="display: none;">
             <label class="form-label">
               <span data-es="Información de Pago" data-en="Payment Information">Información de Pago</span> <span class="required">*</span>
             </label>

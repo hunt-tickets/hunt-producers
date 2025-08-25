@@ -736,6 +736,19 @@ body {
   transform: none;
 }
 
+[data-theme="light"] .btn-primary {
+  background: var(--bg-primary);
+  color: #ffffff;
+  border: 2px solid var(--text-primary);
+}
+
+[data-theme="light"] .btn-primary:hover:not(:disabled) {
+  background: var(--text-primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(33, 37, 41, 0.15);
+}
+
 .btn-text {
   transition: opacity 0.2s ease;
 }
@@ -761,6 +774,11 @@ body {
   border-top: 2px solid white;
   border-radius: 50%;
   animation: spin 1s linear infinite;
+}
+
+[data-theme="light"] .spinner {
+  border: 2px solid rgba(33, 37, 41, 0.3);
+  border-top: 2px solid #ffffff;
 }
 
 @keyframes spin {

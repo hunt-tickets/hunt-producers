@@ -144,6 +144,9 @@ class ProducerForm {
 
     // Setup payment method conditional fields
     this.setupPaymentMethodFields()
+    
+    // Setup country selection handler
+    this.setupCountrySelection()
   }
 
   setupPaymentMethodFields() {
@@ -218,6 +221,78 @@ class ProducerForm {
     }
   }
 
+  setupCountrySelection() {
+    const countrySelect = document.getElementById('country')
+    const taxIdField = document.getElementById('taxId-field')
+    const attachmentsField = document.getElementById('attachments-field')
+    const paymentMethodsField = document.getElementById('payment-methods-field')
+    const taxIdInput = document.getElementById('taxId')
+    const paymentMethodRadios = document.querySelectorAll('input[name="paymentMethod"]')
+    
+    if (!countrySelect) return
+    
+    countrySelect.addEventListener('change', (e) => {
+      const selectedCountry = e.target.value
+      const isColombia = selectedCountry === 'CO'
+      
+      // Show/hide conditional fields based on Colombia selection
+      if (taxIdField) {
+        taxIdField.style.display = isColombia ? 'block' : 'none'
+        if (taxIdInput) {
+          taxIdInput.required = isColombia
+          if (!isColombia) {
+            this.clearError(taxIdInput)
+          }
+        }
+      }
+      
+      if (attachmentsField) {
+        attachmentsField.style.display = isColombia ? 'block' : 'none'
+      }
+      
+      if (paymentMethodsField) {
+        paymentMethodsField.style.display = isColombia ? 'block' : 'none'
+        paymentMethodRadios.forEach(radio => {
+          radio.required = isColombia
+          if (!isColombia) {
+            radio.checked = false
+          }
+        })
+        
+        // Clear payment method errors when not Colombia
+        if (!isColombia) {
+          const paymentMethodError = document.getElementById('paymentMethod-error')
+          if (paymentMethodError) {
+            paymentMethodError.classList.remove('show')
+          }
+        }
+        
+        // Also clear payment method conditional fields when not Colombia
+        if (!isColombia) {
+          const brebField = document.getElementById('breb-account-field')
+          const bankFields = document.getElementById('bank-account-fields')
+          const brebAccount = document.getElementById('brebAccount')
+          const bankFieldIds = ['accountNumber', 'accountType', 'bankName', 'documentNumber', 'accountHolderName']
+          
+          if (brebField) brebField.style.display = 'none'
+          if (bankFields) bankFields.style.display = 'none'
+          
+          if (brebAccount) {
+            brebAccount.required = false
+            this.clearError(brebAccount)
+          }
+          
+          bankFieldIds.forEach(fieldId => {
+            const field = document.getElementById(fieldId)
+            if (field) {
+              field.required = false
+              this.clearError(field)
+            }
+          })
+        }
+      }
+    })
+  }
 
   setupFileUpload() {
     this.fileInput.addEventListener('change', (e) => this.handleFileSelect(e))
